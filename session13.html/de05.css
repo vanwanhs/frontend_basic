@@ -42,6 +42,9 @@ margin-top: 34px;
 height: 913px;
 
 }
+.contaner .head_main .mobi .text_left{
+    display: none;
+}
 .contaner .head_main .text_right{
     width: 720px;
 height: 913px;
@@ -281,120 +284,3 @@ border: 1px solid #000000;
         display: none;
     }
 }
-@media only screen and (max-width: 768px) {
-    .contaner {
-        width: 100%;
-    }
-
-    .head_top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        width: 100%;
-        height: auto;
-    }
-
-    .text1 {
-        padding-left: 20px;
-    }
-
-    .text2 {
-        display: none;
-    }
-
-    .text3 {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-
-    .contaner .head_main {
-        flex-direction: column;
-        height: auto;
-        align-items: center;
-    }
-
-    .contaner .head_main .text_right,
-    .contaner .head_main .text_left {
-        width: 100%;
-        height: auto;
-    }
-
-    .contaner .head_main .text_left img {
-        width: 100%;
-        height: auto;
-    }
-
-    .body_main {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .page1, .page2, .page3, .page4 {
-        width: 90%;
-        height: auto;
-        padding: 16px;
-    }
-
-    .footer {
-        padding: 50px;
-    }
-
-    .footer .main {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer .main .main_text1,
-    .footer .main .main_text2,
-    .footer .main .main_text3 {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    .head_top {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-    }
-
-    .text1 {
-        padding-left: 0;
-        font-size: 16px;
-    }
-
-    .text3 {
-        padding: 8px 16px;
-        font-size: 12px;
-    }
-
-    .body_main {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .page1, .page2, .page3, .page4 {
-        width: 95%;
-        padding: 12px;
-    }
-
-    .footer {
-        padding: 30px;
-        text-align: center;
-    }
-
-    .footer .main {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer .main .main_text1,
-    .footer .main .main_text2,
-    .footer .main .main_text3 {
-        width: 100%;
-        margin-bottom: 15px;
-    }
-}
-
