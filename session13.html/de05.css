@@ -178,6 +178,24 @@ background-color: #FFD7D4;
     flex-direction: column;
     text-align: center;
 }
+.footer .main {
+    position: relative;
+}
+.footer .main .main_text1 p{
+    position: absolute;
+    left: 128px;
+    bottom: 48px;
+}
+.footer .main .main_text2 p{
+    position: absolute;
+    left: 509px;
+    bottom: 48px;
+}
+.footer .main .main_text3 p{
+    position: absolute;
+    left: 890px;
+    bottom: 48px;
+}
 .footer .main .main_text1{
     width: 364px;
 height: 127px;
