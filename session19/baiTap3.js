@@ -1,19 +1,13 @@
-
+let okane = prompt("Mời bạn nhập đơn vị tiền muốn đổi (Us-Vn):").toLowerCase();
 const price = Number(prompt("Mời bạn nhập số tiền muốn đổi:"));
-let okane = prompt("Mời bạn nhập đơn vị tiền muốn đổi (Us-Vn):");
+let convertedPrice;
 
-if (okane === "Us") {
-    const USDollar = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-    });
-    document.write('Dollars: ' + USDollar.format(price));
-} else if (okane === "Vn") {
-    const VND = new Intl.NumberFormat('vi-VN', {
-        style: 'currency',
-        currency: 'VND',
-    });
-    alert('Việt Nam đồng: ' + VND.format(price));
+if (okane == "us") {
+    convertedPrice = price / 23000;
+    document.write(convertedPrice.toFixed(2) + " USD");
+} else if (okane == "vn") {
+    convertedPrice = price * 23000;
+    document.write(convertedPrice.toFixed(2) + " VND");
 } else {
-    document.write("Mời bạn nhập lại lựa chọn đổi tiền hợp lệ (Us hoặc Vn).");
+    document.write("Mời bạn nhập lại đơn vị tiền hợp lệ (Us hoặc Vn)");
 }

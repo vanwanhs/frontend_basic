@@ -1,21 +1,21 @@
-let numberA = prompt("Mời bạn nhập số a");
-let numberB = prompt("Mời bạn nhập số b");
-let numberC = prompt("Mời bạn nhập số C");
-let x1;
-let x2;
-if (Number.isFinite(numberA) && Number.isFinite(numberB) && Number.isFinite(numberC)) {
-    let deltal=Math.pow(numberB,2)-(4*(numberA*numberC));
-    if (deltal==0){
-        x1= x2 =-numberB/2*numberA;
-        document.write(x1+ " và " +x2+" Hai nhiệm kép của phương trình bậc 2");
-    } else if (deltal>0) {
-        x1 = (Math.sqrt(deltal)-numberB)/(2*numberA);
-        x2 = (-Math.sqrt(deltal)-numberB)/(2*numberA);
-    alert("X1= :"+x1 );
-    alert("X2= :"+x2 );
+let numberA = Number(prompt("Mời bạn nhập số a"));
+let numberB = Number(prompt("Mời bạn nhập số b"));
+let numberC = Number(prompt("Mời bạn nhập số c"));
+let x1, x2;
+
+if (!isNaN(numberA) && !isNaN(numberB) && !isNaN(numberC)) {
+    let delta = Math.pow(numberB, 2) - (4 * numberA * numberC);
+
+    if (delta === 0) {
+        x1 = x2 = -numberB / (2 * numberA);
+        document.write(`Phương trình có nghiệm kép: x1 = x2 = ${x1}`);
+    } else if (delta > 0) {
+        x1 = (-numberB + Math.sqrt(delta)) / (2 * numberA);
+        x2 = (-numberB - Math.sqrt(delta)) / (2 * numberA);
+        alert(`Phương trình có 2 nghiệm: X1 = ${x1}, X2 = ${x2}`);
     } else {
-        alert("Phuongw trinfh voo nghiem");
+        alert("Phương trình vô nghiệm!");
     }
 } else {
-    alert("Ban nhap he so chua dung!");
+    alert("Bạn nhập hệ số chưa đúng!");
 }
