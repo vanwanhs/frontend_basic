@@ -49,10 +49,10 @@ do {
             console.log("Chuỗi sau khi trộn: " + mixed);
             break;
         case 6:
-            let wordsArr = chuoi.split(/\s+/);
+            let wordsArr = chuoi.split(" "); 
             wordsArr.sort((a, b) => a.length - b.length);
             console.log("Chuỗi sau khi sắp xếp theo độ dài: " + wordsArr.join(" "));
-            break;
+
         case 7:
             console.log("Cảm ơn bạn đã sử dụng chương trình");
             break;

@@ -48,7 +48,7 @@ do {
             for (let i = 0; i < words.length; i++) {
                 if (words[i].length > 0) {
                     result += words[i][0].toUpperCase() + words[i].slice(1) + " ";
-                }
+                }l
             }
             chuoi = result.trim();
             console.log("Chuỗi sau khi chuyển đổi: " + chuoi);
