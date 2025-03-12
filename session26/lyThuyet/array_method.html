@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+                    Các phương thức làm việc với mảng, giúp sử lí giải quyết vấn đề nhanh hơn (dùng for làm được hết
+        I. Đầu vào
+        1.IndexOf
+        - đầu vào là phần tử cần kiểm tra
+        - Đầu ra là vị trị
+            + Nếu có trà về vị trí
+            + Nếu không có trả về -1
+        2.includes()
+        - Đầu vào là phần tử cần kiểm tra
+        - đầu ta là true hoặc flase;
+        3.fillter() lọc
+        - Đầu vào là một call back tức là một hàm
+        - Đầu ra :
+            + trả về một cái mảng chứa các phần tử thỏa mãn điều kiện
+        4.findIndex()
+            - đầu vào 1 callback tức là một hàm
+            - Nếu có phần tử thfi trả về vị trí
+            _ Nếu không có thì trả về -1;
+        5.find()
+            - đầu vào là một callback tức là một hàm
+            - đầu ra là vị trí nếu có
+        6. reduce(): tính toán một giá trị
+            - đầu vào là hai gía trị 1 là hàm 2 là giá trị khởi tạo
+        ) -->
+            <script src="">
+                let student=["anh", "yeu", "em"];
+                console.log(student.indexOf("anh"));
+                let number=[1,2,3,21,2112,12];
+                let result=number.filter((item,index,arr) => {
+                    return item%2>2;
+                })
+                document.write(result);
+                let index=student.findIndex(item,index=>{
+                    return item=="anh";
+                })
+                document.write(index);
+                
+            </script>
+</body>
+</html>
