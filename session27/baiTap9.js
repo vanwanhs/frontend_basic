@@ -1,4 +1,4 @@
-function sortEvenNumbers(arr) {
+function sortNum(arr) {
     if (!Array.isArray(arr) || arr.some(isNaN)) {
         console.log("Dữ liệu không hợp lệ");
     }
@@ -9,6 +9,6 @@ function sortEvenNumbers(arr) {
     return arr.map(num => num % 2 === 0 ? evenNumbers[evenIndex++] : num);
 }
 
-console.log(sortEvenNumbers([5, 3, 2, 8, 1, 4]));
-console.log(sortEvenNumbers([9, 4, 6, 7, 2, 3])); 
-console.log(sortEvenNumbers("abc")); 
+console.log(sortNum([5, 3, 2, 8, 1, 4]));
+console.log(sortNum([9, 4, 6, 7, 2, 3])); 
+console.log(sortNum("abc")); 
