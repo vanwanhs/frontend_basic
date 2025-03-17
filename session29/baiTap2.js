@@ -45,25 +45,18 @@ function findProduct() {
 
 function updateProduct() {
     let id = parseInt(prompt("Nhập ID sản phẩm cần cập nhật:"));
-    let index = products.findIndex(item => item.id === id);
+    let indexUpdate = products.findIndex(item => item.id === id);
     
-    if (index === -1) {
-        console.log("Không tìm thấy sản phẩm.");
-        return;
-    }
-    
-    let product = products[index];
-    let name = prompt("Nhập tên mới:", product.name) || product.name;
-    let price = parseFloat(prompt("Nhập giá mới:", product.price));
-    let category = prompt("Nhập danh mục mới:", product.category) || product.category;
-    let quantity = parseInt(prompt("Nhập số lượng mới:", product.quantity));
-    
-    if (!isNaN(price)) product.price = price;
-    if (!isNaN(quantity)) product.quantity = quantity;
-    product.name = name;
-    product.category = category;
-    
-    console.log("Cập nhật thành công!");
+    if (indexUpdate !== -1) {
+        products[indexUpdate].name = prompt('Nhập tên mới: ');
+         products[indexUpdate].price = prompt('Nhập email mới: ');
+         products[indexUpdate].phone = prompt('Nhập số điện thoại mới: ' );
+         products[indexUpdate].category = prompt('Nhập số điện thoại mới: ');
+         productst[indexUpdate].quantity = prompt('Nhập số điện thoại mới: ', );
+         alert('Cập nhật liên hệ hoàn tất');
+     } else {
+         alert('ID liên hệ không tồn tại');
+     }
 }
 
 function deleteProduct() {
