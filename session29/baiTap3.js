@@ -23,22 +23,23 @@ function addDish() {
     console.log("Thêm món ăn thành công!");
 }
 
-function deleteDish() {
-    let name = prompt("Mời bạn nhập tên món ăn cần xóa");
+function updateDish() {
+    let name = prompt("Mời bạn nhập tên món ăn cần cập nhật");
     let found = false;
 
     for (let DanhMuc in list) {
-        list[DanhMuc] = list[DanhMuc].filter((dish) => dish.name !== name);
-        if (list[DanhMuc].length === 0) {
-            delete list[DanhMuc];
+        let dish = list[DanhMuc].find((dish) => dish.name === name);
+        if (dish) {
+            dish.name = prompt("Nhập tên mới:") || dish.name;
+            dish.price = +prompt("Nhập giá mới:") || dish.price;
+            dish.text = prompt("Nhập mô tả mới:") || dish.text;
+            found = true;
+            console.log("Cập nhật món ăn thành công!");
+            break;
         }
-        found = true;
     }
-
-    if (found) {
-        console.log("Xóa món ăn thành công!");
-    } else {
-        console.log("Không tìm thấy món ăn để xóa.");
+    if (!found) {
+        console.log("Không tìm thấy món ăn để cập nhật.");
     }
 }
 

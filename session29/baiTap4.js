@@ -13,6 +13,7 @@ do {
     choise = +prompt("nhap lua chon:");
     switch (choise) {
         case 1:
+            addJob();
             break;
         case 2:
             lichLam.forEach(function (item) {
@@ -37,7 +38,13 @@ do {
 } while (choise !== 6);
 
 function addJob() {
-
+    let id;
+    lichLam.length>0 ? id = lichLam[lichLam.length-1]+1 : id = 1;
+    let name = prompt("Nhập tên");
+    let description = prompt("Mô tả");
+    let time = new Date();
+    let status= false;
+    lichLam.push({id,name,description,time,status});
 }
 
 function updateJob() {
