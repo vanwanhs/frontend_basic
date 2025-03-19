@@ -2,28 +2,29 @@ let courses = [];
 let users = [];
 
 function menu() {
-    console.log("\n==== ỨNG DỤNG QUẢN LÝ KHÓA HỌC VÀ NGƯỜI DÙNG ====");
-    console.log("1. Quản lý khóa học");
-    console.log("2. Quản lý người dùng");
-    console.log("0. Thoát");
+    alert("==== ỨNG DỤNG QUẢN LÝ KHÓA HỌC VÀ NGƯỜI DÙNG ====\n" +
+          "1. Quản lý khóa học\n" +
+          "2. Quản lý người dùng\n" +
+          "0. Thoát");
 }
 
 function courseManagementMenu() {
-    console.log("\n==== QUẢN LÝ KHÓA HỌC ====");
-    console.log("1. Thêm khóa học");
-    console.log("2. Tìm kiếm khóa học theo tên");
-    console.log("3. Xóa khóa học");
-    console.log("0. Thoát");
+    alert("==== QUẢN LÝ KHÓA HỌC ====\n" +
+          "1. Thêm khóa học\n" +
+          "2. Tìm kiếm khóa học theo tên\n" +
+          "3. Xóa khóa học\n" +
+          "0. Thoát");
 }
 
 function userManagementMenu() {
-    console.log("\n==== QUẢN LÝ NGƯỜI DÙNG ====");
-    console.log("1. Thêm người dùng mới");
-    console.log("2. Đăng ký khóa học");
-    console.log("3. Hủy đăng ký khóa học");
-    console.log("4. Hiển thị danh sách khóa học của một người dùng");
-    console.log("0. Thoát");
+    alert("==== QUẢN LÝ NGƯỜI DÙNG ====\n" +
+          "1. Thêm người dùng mới\n" +
+          "2. Đăng ký khóa học\n" +
+          "3. Hủy đăng ký khóa học\n" +
+          "4. Hiển thị danh sách khóa học của một người dùng\n" +
+          "0. Thoát");
 }
+
 
 function addCourse() {
     let id = +prompt("Nhập ID khóa học:");
