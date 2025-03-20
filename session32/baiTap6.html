@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    margin: 0;
+}
+
+.main {
+    display: flex;
+    gap: 50px; /* Khoảng cách giữa các nút */
+}
+
+.main .button1 {
+    height: 50px;
+    width: 100px;
+    background-color: green;
+}
+.main .button2 {
+    height: 50px;
+    width: 100px;
+    background-color: red;
+}
+
+    </style>
+</head>
+<body class="contaner">
+    <script src="./baiTap6.js"></script>
+    <h1>Bấm  sẽ thay đổi kích thước khi bấm nút</h1>
+    <div class="main">
+        <button class="button1" id="tangText" onclick="tang()">+</button>
+        <button class="button2" id="giamText" onclick="giam()">-</button>
+    </div>
+</body>
+</html>

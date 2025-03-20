@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phóng to ảnh</title>
+    <link rel="stylesheet" href="./baiTap7.css">
+</head>
+<body>
+
+    <h2>川</h2>
+
+    <!-- Ảnh nhỏ -->
+    <img src="./img/480694999_1331509091507032_5046349646287345624_n (1).jpg" class="thumbnail" onclick="openImage(this)">
+    <img src="./img/480694999_1331509091507032_5046349646287345624_n.jpg" class="thumbnail" onclick="openImage(this)">
+    <img src="./img/481253462_1331508038173804_1031305831859193572_n.jpg" class="thumbnail" onclick="openImage(this)">
+
+    <!-- Overlay chứa ảnh lớn -->
+    <div class="overlay" id="overlay" onclick="closeImage()">
+        <img id="largeImage">
+    </div>
+    <script src="./baiTap7.js"></script>
+
+</body>
+</html>
