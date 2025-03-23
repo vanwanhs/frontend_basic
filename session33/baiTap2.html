@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="text" id="text">
+
+    </textarea>
+    <p><span id="textLength">0</span> ký tự </p>
+    <button id="test-btn">Kiểm tra</button>
+    <script>
+        let inputText=document.getElementById("text");
+        let textLength=document.getElementById("textLength");
+        let testBtn=document.getElementById("test-btn");
+        testBtn.addEventListener("click", function(){ 
+            let text=inputText.value;
+            textLength.innerText= text.length +" Ký tự";
+            inputText.value="";
+        })
+    </script>
+</body>
+</html>

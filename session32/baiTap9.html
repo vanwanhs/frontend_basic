@@ -8,15 +8,10 @@
  <link rel="stylesheet" href="./baiTap9.css">
 </head>
 
-<body>
-  <div class="container">
-    <h1>Tiến trình</h1>
-    <div class="load">
-      <div id="thanhTao" class="loading"></div>
-    </div>
-    <button id="nutTang">Tăng</button>
-    <button id="nutGiam">Giảm</button>
-  </div>
+<body class="contaner">
+  <progress id="progress" max="100" value="10"> Thanh tiền trình</progress>
+  <button onclick="increase()" id="nutTang">Tăng</button>
+  <button onclick="desc()" id="nutGiam">Giảm</button>
  <script src="./baiTap9.js"></script>
 </body>
 
