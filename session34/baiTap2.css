@@ -1,0 +1,62 @@
+/* th {
+    background-color: #007bff;  
+    color: white;              
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+tbody button {
+    padding-right: 10px;
+    margin: 9px;
+}
+.head{
+    padding-top: 10px;
+    margin: 10px 10px 10px 0;
+    margin-top: 10px;
+}
+table{
+    background-color: rgb(114, 113, 113);
+}
+body{
+    border: 3px solid black;
+    width: 700px;
+    height: auto;
+    align-content: center;
+} */
+ /* Căn giữa toàn bộ nội dung */
+body {
+    border: 3px solid black;
+    width: 700px;
+    height: auto;
+    margin: 20px auto; /* Căn giữa theo chiều ngang */
+    padding: 20px;
+    text-align: center; /* Căn giữa nội dung bên trong */
+}
+
+/* Căn giữa bảng */
+table {
+    margin: 0 auto; 
+    background-color: rgb(114, 113, 113);
+    border-collapse: collapse; /
+}
+
+th, td {
+    text-align: center;
+    padding: 10px;
+}
+th {
+    background-color: #007bff;  
+    color: white;              
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+tbody button {
+    padding-right: 10px;
+    margin: 9px;
+}
+.head{
+    padding-top: 10px;
+    margin: 10px 10px 10px 0;
+    margin-top: 10px;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Local Storage</h1>
+    <script>
+        // Lưu chữ dữ liệu lâu dài trên trình duyệt
+        // dung lượng tầm 5mb đến 10mb
+        // cú pháp làm việc với lodcal Storage
+        // I. Lưu chữ dữ liệu
+        //     1. Lodcalstorage.setItem("ten_key","Giá trị cần lưu")
+        // II.Lấy về
+        // III. Xóa
+        let fullName ="Lê Hương Giang"
+        localStorage.setItem("fullName",fullName);
+        let age = 19;
+        localStorage.setItem("age",age);
+        let arr = ["Lê","Hương","GIang"];
+        localStorage.setItem("arr",JSON.stringify(arr));
+        // Khi muốn lưu mảng lên local thì chuyện ddingj dạng JSON
+        // Cú pháp định dạng sang JSON
+        // JSON.stringify(arr)
+
+        let product=[
+            {id:1, name:"iphone 15"},
+            {id:2, name:"iphone 14"}
+        ]
+    </script>
+</body>
+</html>

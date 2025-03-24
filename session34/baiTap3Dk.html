@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký</title>
+    <style>
+       * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        button {
+            background-color: blue;
+            border: 1px solid black;
+            width: 350px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Đăng Ký</h2>
+    <div>
+        <label for="email">Email</label>
+        <input id="email" type="email"> <br><br>
+    </div>
+    <div>
+        <label for="password">Mật khẩu</label>
+        <input id="password" type="password"> <br><br>
+    </div>
+    <div>
+        <label for="confirmpassword">Xác nhận mật khẩu</label>
+        <input id="confirmpassword" type="password"> <br><br>
+    </div>
+    <button onclick="register()">Đăng ký</button>
+    <p id="error" style="color: red;"></p>
+
+    <!-- <script>
+        // Lấy danh sách users từ localStorage (nếu có)
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+
+        function register() {
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let confirmPassword = document.getElementById("confirmpassword").value.trim();
+            let error = document.getElementById("error");
+
+            // Xóa thông báo lỗi trước đó
+            document.getElementById("error").innerText = "";
+
+            // Kiểm tra định dạng email
+            if (!(email.includes("@") && (email.endsWith(".com") || email.endsWith(".vn")))) {
+                error.innerText = "Email không hợp lệ!";
+                return;
+            }
+            if (password.length < 6) {
+                error.innerText = "Mật khẩu phải có ít nhất 6 ký tự!";
+                return;
+            }
+            if (password !== confirmPassword) {
+                error.innerText = "Mật khẩu không khớp!";
+                return;
+            }
+            let isExist = users.find(user => user.email === email);
+            if (isExist) {
+                error.innerText = "Email đã tồn tại!";
+                return;
+            }
+            let user = {
+                id: Math.floor(Math.random() * 65656566),
+                email: email,
+                password: password
+            };
+
+            users.push(user);
+
+            // Lưu danh sách users vào localStorage
+            localStorage.setItem("users", JSON.stringify(users));
+
+            // Chuyển sang trang đăng nhập
+            window.location = "./baiTap3";
+        }
+    </script> -->
+    <script src="./baiTap3.js"></script>
+</body>
+</html>

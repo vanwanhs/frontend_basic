@@ -1,0 +1,28 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Danh sách nhân viên Rikkei</title>  
+    <link rel="stylesheet" href="./baiTap5.css">  
+</head>  
+<body>  
+    <div class="container">  
+        <h1>Danh sách nhân viên Rikkei</h1>  
+        <input id="employeeName" type="text" placeholder="Tên nhân viên">  
+        <input id="employeeRole" type="text" placeholder="Chức vụ">  
+        <button onclick="addEmployee()">Thêm nhân viên</button>  
+        <table>  
+            <thead>  
+                <tr>  
+                    <th>STT</th>  
+                    <th>Tên</th>  
+                    <th>Chức vụ</th>  
+                </tr>  
+            </thead>  
+            <tbody id="employeeList"></tbody>  
+        </table>  
+    </div>  
+    <script src="./baiTap5.js"></script>  
+</body>  
+</html>  
