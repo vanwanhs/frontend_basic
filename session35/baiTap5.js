@@ -36,6 +36,7 @@ function render() {
                     <td class="${statusClass}">${cat.status === "active" ? "Đang hoạt động" : "Ngừng hoạt động"}</td>
                     <td>
                         <button onclick="deleteCategory('${cat.id}')">Xóa</button>
+                        <button onclick="update('${cat.id}')">Sửa</button>
                     </td>
                 </tr>`;
         list.innerHTML += row;

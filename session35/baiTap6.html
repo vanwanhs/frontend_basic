@@ -1,58 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="baitap6.css">
+    <title>Quản lý Danh mục</title>
+    <link rel="stylesheet" href="./baiTap6.css">
 </head>
+
 <body>
-    <div id="opacityBackground" class=""></div>
-    <div id="header">
-        <span>Danh muc</span>
-        <button onclick="showAddGui()">Them moi danh muc</button>
+    <div class="head">
+        <h2>Danh mục</h2>
+        <button onclick="showModal()">Thêm mới danh mục</button>
     </div>
-    <div id="fontInput">
-        <div></div>
-        <div>
-            <select name="" id="Status">
-                <option value="Tat ca">chon</option>
-                <option value="Dang hoat dong">Dang hoat dong</option>
-                <option value="Ngung hoat dong">Ngung hoat dong</option>
+
+    <label for="filter-status">Lọc theo trạng thái:</label>
+    <select id="filter-status">
+        <option value="all">Tất cả</option>
+        <option value="active">Đang hoạt động</option>
+        <option value="inactive">Ngừng hoạt động</option>
+    </select>
+
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã danh mục</th>
+                    <th>Tên danh mục</th>
+                    <th>Trạng thái</th>
+                    <th>Chức năng</th>
+                </tr>
+            </thead>
+            <tbody id="category-list"></tbody>
+        </table>
+    </div>
+
+    <div id="modal" class="modal">
+        <h3>Thêm mới danh mục</h3>
+        <label>Mã danh mục: <input type="text" id="category-id"></label><br>
+        <label>Tên danh mục: <input type="text" id="category-name"></label><br>
+        <label>Trạng thái:
+            <select id="category-status">
+                <option value="active">Đang hoạt động</option>
+                <option value="inactive">Ngừng hoạt động</option>
             </select>
-            <input type="text" placeholder="Tim kiem danh muc theo ten" id="findNameInput">
-            <button id="findButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </label><br>
+        <div class="but">
+            <button onclick="addCategory()">Thêm</button>
+            <button onclick="closeModal()">Hủy</button>
         </div>
     </div>
-    <table id="fontTable"  cellspacing="0" cellpadding="9">
-        <!-- them item o dayyyyyyyyyyyyyy -->
-    </table>
-    <div id="addGui">
-        <div id="addGuiHeader">
-            <span>Them moi danh muc</span>
-            <button onclick="showAddGui()">x</button>
-        </div>
-        <p>Ma danh muc</p>
-        <input type="text" class="input" id="inputID">
-        <p id="errorIDAlert" class="red hide">Ma danh muc khong duoc de trong</p>
-        <p>Ten danh muc</p>
-        <input type="text" class="input" id="inputName">
-        <p id="errorNameAlert" class="red hide">Ten danh muc khong duoc de trong</p>
-        <p>trang thai</p>
-        <input type="radio" name="status" value="Dang hoat dong" class="inputSpace" checked> Dang hoat dong
-        <input type="radio" value="Ngung hoat dong" name="status" > Ngung hoat dong
-        <hr class="line">
-        <div id="listAddButton">
-            <div></div>
-            <div>
-                <button id="declineButton">Huy</button>
-                <button id="addButton" onclick="addItem()">Them</button>
-            </div>
-        </div>
-    </div>
-    <script src="baitap6.js"></script>
+
+    <script src="./baiTap6.js"></script>
 </body>
+
 </html>

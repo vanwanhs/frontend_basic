@@ -1,89 +1,100 @@
-let dataName = "listS35B5";
-
-function getData() {
-    return JSON.parse(localStorage.getItem(dataName)) || [];
-}
-
-function showAddGui() {
-    document.getElementById("addGui").classList.toggle("hide");
-}
-document.getElementById("Status").addEventListener("change", function () {
+document.addEventListener("DOMContentLoaded", () => {
     render();
+    document.getElementById("filter-status").addEventListener("change", render);
 });
 
+function showModal() {
+    document.getElementById("modal").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+
+function addCategory() {
+    let id = document.getElementById("category-id").value.trim();
+    let name = document.getElementById("category-name").value.trim();
+    let status = document.getElementById("category-status").value;
+
+    if (!id || !name) {
+        alert("Vui lòng nhập đầy đủ thông tin!");
+        return;
+    }
+
+    let categories = JSON.parse(localStorage.getItem("categories")) || [];
+
+    if (categories.some(cat => cat.id === id)) {
+        alert("Mã danh mục đã tồn tại!");
+        return;
+    }
+
+    let newCategory = { id, name, status };
+    categories.push(newCategory);
+    localStorage.setItem("categories", JSON.stringify(categories));
+
+    render();
+    closeModal();
+}
+
 function render() {
-    let selectedStatus = document.getElementById("Status").value;
-    let message = `
-        <tr>
-            <td class="td1 tdHeader">Ma danh muc <i class="fa-solid fa-arrow-down"></i></td>
-            <td class="td2 tdHeader">Ten danh muc <i class="fa-solid fa-arrow-down"></i></td>
-            <td class="td3 tdHeader">Trang thai</td>
-            <td class="td4 tdHeader">Chuc nang</td>
-        </tr>
-    `;
+    let categories = JSON.parse(localStorage.getItem("categories")) || [];
+    let filterStatus = document.getElementById("filter-status").value;
+    let list = document.getElementById("category-list");
 
-    let list = getData(); 
-
-    let filteredList = list.filter(item => selectedStatus === "Tat ca" || item.status === selectedStatus);
-
-    for (let i = 0; i < filteredList.length; i++) {
-        let statusMess = filteredList[i].status === "Dang hoat dong" ?
-            `<td class="td3"><mark class="statusOn">&bull; ${filteredList[i].status}</mark></td>` :
-            `<td class="td3"><mark class="statusOff">&bull; ${filteredList[i].status}</mark></td>`;
-
-        message += `
-            <tr>
-                <td class="td1">${filteredList[i].id}</td>
-                <td class="td2">${filteredList[i].name}</td>
-                ${statusMess}
-                <td class="td4">
-                    <button class="trashButton"><i class="fa-solid fa-trash"></i></button>
-                    <button class="penButton"><i class="fa-solid fa-pen"></i></button>
-                </td>
-            </tr>
-        `;
-    }
-
-    document.getElementById("fontTable").innerHTML = message;
+    list.innerHTML = "";
+    categories
+        .filter(cat => filterStatus === "all" || cat.status === filterStatus)
+        .forEach(cat => {
+            let statusClass = cat.status === "active" ? "status-active" : "status-inactive";
+            let row = `<tr>
+                        <td>${cat.id}</td>
+                        <td>${cat.name}</td>
+                        <td class="${statusClass}">${cat.status === "active" ? "Đang hoạt động" : "Ngừng hoạt động"}</td>
+                        <td>
+                            <button onclick="editCategory('${cat.id}')">Sửa</button>
+                            <button onclick="deleteCategory('${cat.id}')">Xóa</button>
+                        </td>
+                    </tr>`;
+            list.innerHTML += row;
+        });
 }
-function addItem() {
-    let idInput = document.getElementById("inputID").value.trim();
-    let nameInput = document.getElementById("inputName").value.trim();
-    if (idInput && nameInput) {
-        let list = getData();
-        document.getElementById("errorIDAlert").classList.add("hide");
-        document.getElementById("errorNameAlert").classList.add("hide");
-        for (let i = 0; i < list.length; i++){
-            if (idInput === list[i].id) {
-                document.getElementById("errorIDAlert").classList.remove("hide");
-                document.getElementById("errorIDAlert").innerHTML = "ID bi trung lap moi nhap lai!!";
-                return;
-            }
-        }
-        let status = document.querySelector('input[name="status"]:checked').value;
 
-        let temp = {
-            id: idInput,
-            name: nameInput,
-            status
-        };
-        list.push(temp);
-        localStorage[dataName] = JSON.stringify(list);
-        document.getElementById("inputID").value = "";
-        document.getElementById("inputName").value = "";
-        document.querySelector('input[name="status"]').checked = true;
+function deleteCategory(id) {
+    if (confirm("Bạn có chắc chắn muốn xóa danh mục này?")) {
+        let categories = JSON.parse(localStorage.getItem("categories")) || [];
+        categories = categories.filter(cat => cat.id !== id);
+        localStorage.setItem("categories", JSON.stringify(categories));
         render();
-        showAddGui();
-    } else if (!idInput && !nameInput) {
-        document.getElementById("errorIDAlert").classList.remove("hide");
-        document.getElementById("errorNameAlert").classList.remove("hide");
-    } else if (!nameInput) {
-        document.getElementById("errorIDAlert").classList.add("hide");
-        document.getElementById("errorNameAlert").classList.remove("hide");
-    } else if (!idInput) {
-        document.getElementById("errorIDAlert").classList.remove("hide");
-        document.getElementById("errorNameAlert").classList.add("hide");
     }
 }
 
-render()
+function editCategory(id) {
+    let categories = JSON.parse(localStorage.getItem("categories")) || [];
+    let category = categories.find(cat => cat.id === id);
+    
+    if (category) {
+        document.getElementById("category-id").value = category.id;
+        document.getElementById("category-name").value = category.name;
+        document.getElementById("category-status").value = category.status;
+        showModal();
+        let addButton = document.querySelector(".but button:first-child");
+        addButton.textContent = "Lưu";
+        addButton.setAttribute("onclick", `updateCategory('${id}')`);
+    }
+}
+
+function updateCategory(id) {
+    let categories = JSON.parse(localStorage.getItem("categories")) || [];
+    let category = categories.find(cat => cat.id === id);
+
+    if (category) {
+        category.name = document.getElementById("category-name").value.trim();
+        category.status = document.getElementById("category-status").value;
+        localStorage.setItem("categories", JSON.stringify(categories));
+        render();
+        closeModal();
+        let addButton = document.querySelector(".but button:first-child");
+        addButton.textContent = "Thêm";
+        addButton.setAttribute("onclick", "addCategory()");
+    }
+}
