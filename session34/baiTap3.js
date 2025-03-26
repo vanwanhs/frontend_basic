@@ -22,17 +22,14 @@ function login() {
 }
 
 function register() {
-    // Lấy danh sách users từ localStorage (nếu có)
         let users = JSON.parse(localStorage.getItem("users")) || [];
             let email = document.getElementById("email").value.trim();
             let password = document.getElementById("password").value.trim();
             let confirmPassword = document.getElementById("confirmpassword").value.trim();
             let error = document.getElementById("error");
 
-            // Xóa thông báo lỗi trước đó
             document.getElementById("error").innerText = "";
 
-            // Kiểm tra định dạng email
             if (!(email.includes("@") && (email.endsWith(".com") || email.endsWith(".vn")))) {
                 error.innerText = "Email không hợp lệ!";
                 return;
