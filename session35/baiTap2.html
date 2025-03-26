@@ -1,159 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    .search-container {
-      display: flex;
-      gap: 5px;
-      justify-content: center;
-      height: 60px;
-    }
-    #searchBox {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      font-size: 16px;
-      border-radius: 5px;
-    }
-    #searchBtn {
-      border-radius: 5px;
-      height: 40px;
-      width: 80px;
-      border: none;
-      background-color: green;
-      color: white;
-    }
+<html lang="vi">
 
-    .product-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .product-card {
-      width: 250px;
-      border: 1px solid #ddd;
-      padding: 10px;
-      border-radius: 5px;
-      p {
-        opacity: 0.7;
-      }
-    }
-    .product-card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-    }
-    .buy-button {
-      background-color: blue;
-      color: white;
-      padding: 8px;
-      border: none;
-      cursor: pointer;
-      margin-top: 10px;
-      border-radius: 5px;
-    }
-  </style>
-  <body>
-    <h2>Danh sách sản phẩm</h2>
-    <div class="search-container">
-      <input type="search" id="searchBox" placeholder="Search" />
-      <button id="searchBtn">Search</button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Bookmark</title>
+    <link rel="stylesheet" href="./baiTap2.css">
+</head>
+
+<body>
+
+    <div id="container01">
+        <button onclick="add_web()" id="button_add_bookmark">ADD WEB</button>
     </div>
-    <div class="product-container" id="productList"></div>
+    <div id="container01_show_web">
+    </div>
+    <div id="container02">
+        <div id="container02_header">
+            <span>Add Bookmark</span>
+            <span id="close_add" onclick="close_add()">✕</span>
+        </div>
+        <div id="container02_main">
+            <div id="container02_input">
+                <div>
+                    <label for="">Website name</label>
+                    <br>
+                    <input type="text" placeholder="Website name" id="web_name_input">
+                </div>
+                <br>
+                <div>
+                    <label for="">Website URL</label>
+                    <br>
+                    <input type="text" placeholder="Web url" id="web_url_input">
+                </div>
+            </div>
+            <br>
+            <button id="button_save" onclick="add_web()">Save</button>
+        </div>
 
-    <script>
-      const products = [
-        {
-          id: 1,
-          name: "Laptop Dell XPS 15",
-          price: 35990000,
-          image:
-            "https://th.bing.com/th/id/R.dd66a48254aca2d1e37b8887993a100c?rik=Ileg6QdLFs2iTA&pid=ImgRaw&r=0",
-          description:
-            "Laptop cao cấp với màn hình 15 inch, CPU Intel Core i7 và RAM 16GB.",
-        },
-        {
-          id: 2,
-          name: "iPhone 15 Pro Max",
-          price: 32990000,
-          image:
-            "https://th.bing.com/th/id/OIP.PO8M08Vxndz_455at0qGawHaFj?rs=1&pid=ImgDetMain",
-          description:
-            "Điện thoại flagship của Apple với camera 48MP và chip A17 Pro.",
-        },
-        {
-          id: 3,
-          name: "Samsung Galaxy S24 Ultra",
-          price: 28990000,
-          image:
-            "https://th.bing.com/th/id/OIP.n5ZE0e4C910Ed2cLhNKjPAHaEK?rs=1&pid=ImgDetMain",
-          description:
-            "Điện thoại Android mạnh mẽ với bút S-Pen và camera siêu zoom.",
-        },
-        {
-          id: 4,
-          name: "Tai nghe Sony WH-1000XM5",
-          price: 7990000,
-          image:
-            "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-ljv36f0uj8xuaf",
-          description:
-            "Tai nghe chống ồn tốt nhất với thời lượng pin lên đến 30 giờ.",
-        },
-        {
-          id: 5,
-          name: "Apple Watch Series 9",
-          price: 11990000,
-          image:
-            "https://bgr.com/wp-content/uploads/2023/09/Apple-Watch-Series-9.jpg?quality=82&strip=all",
-          description:
-            "Đồng hồ thông minh cao cấp với tính năng đo nhịp tim và hỗ trợ thể thao.",
-        },
-        {
-          id: 6,
-          name: "Loa JBL Charge 5",
-          price: 3990000,
-          image:
-            "https://th.bing.com/th/id/OIP.kNp66Lw41hQJBWsxrddSZQHaHa?rs=1&pid=ImgDetMain",
-          description:
-            "Loa Bluetooth chống nước với âm bass mạnh mẽ và pin 20 giờ.",
-        },
-      ];
-      let productList = document.getElementById("productList");
-      let searchText = document.getElementById("searchBox");
-      let searchBtn = document.getElementById("searchBtn");
-      function showproducts(product) {
-        productList.innerHTML = "";
-        product.forEach((product) => {
-          productList.innerHTML += `
-                    <div class="product-card">
-                        <img src="${product.image}" alt="${product.name}">
-                        <h3>${product.name}</h3>
-                        <p>${product.description}</p>
-                        <p><strong>${product.price.toLocaleString()} VND</strong></p>
-                        <button class="buy-button">Buy</button>
-                    </div>
-        `;
-        });
-      }
-      showproducts(products);
-      searchBtn.addEventListener("click", function () {
-        const keyword = searchText.value.trim().toLowerCase();
-        const filteredProducts = products.filter(
-          (product) =>
-            product.name.toLowerCase().includes(keyword) ||
-            product.description.toLowerCase().includes(keyword)
-        );
-        showproducts(filteredProducts);
-        searchText.value = "";
-      });
-    </script>
-  </body>
+
+    </div>
+    <script src="./baiTap2.js"></script>
+</body>
+
 </html>

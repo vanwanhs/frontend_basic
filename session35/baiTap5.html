@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./baiTap5.css">
+</head>
+
+<body>
+    <div class="head">
+        <h2>Danh mục</h2>
+        <button onclick="showModal()">Thêm mới danh mục</button>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã danh mục</th>
+                    <th>Tên danh mục</th>
+                    <th>Trạng thái</th>
+                    <th>Chức năng</th>
+                </tr>
+            </thead>
+            <tbody id="category-list"></tbody>
+        </table>
+    </div>
+
+    <div id="modal" class="modal">
+        <h3>Thêm mới danh mục</h3>
+        <label>Mã danh mục: <input type="text" id="category-id"></label><br>
+        <label>Tên danh mục: <input type="text" id="category-name"></label><br>
+        <label>Trạng thái:
+            <select id="category-status">
+                <option value="active">Đang hoạt động</option>
+                <option value="inactive">Ngừng hoạt động</option>
+            </select>
+        </label><br>
+        <div class="but">
+            <button onclick="addCategory()">Thêm</button>
+            <button onclick="closeModal()">Hủy</button>
+        </div>
+    </div>
+    <script src="./baiTap5.js"></script>
+</body>
+
+</html>
