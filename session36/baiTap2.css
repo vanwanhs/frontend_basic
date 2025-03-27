@@ -1,0 +1,9 @@
+.container{
+    max-width: 500px;
+    text-align: center;
+    margin: auto;
+}
+.container .food{
+    display: flex;
+    margin: 50px;
+}

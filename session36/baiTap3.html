@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chọn màu yêu thích</title>
+    <style>
+        .container {
+            max-width: 500px;
+            margin: auto;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            color: white;
+            border: none;
+            font-size: 16px;
+        }
+        span {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body onload="loadColor()">
+    <div class="container">
+        <h1>Chọn màu bạn yêu thích</h1>
+        <div class="main">
+            <button onclick="change('red')" style="background-color: red;">Đỏ</button>
+            <button onclick="change('blue')" style="background-color: blue;">Xanh dương</button>
+            <button onclick="change('yellow')" style="background-color: yellow; color: black;">Vàng</button>
+            <button onclick="change('violet')" style="background-color: violet;">Tím</button>
+        </div>
+        <span>Trang sẽ ghi nhớ màu bạn đã chọn ngay cả khi bạn thoát trang!</span>
+    </div>
+
+    <script>
+    function change(color){
+        document.body.style.backgroundColor = color;
+        localStorage.setItem("backgroundColor",color);
+    }
+    function loadColor() {
+        let savedColor = localStorage.getItem("backgroundColor");
+        if(savedColor){
+            document.body.style.backgroundColor=savedColor;
+        }
+    }
+        
+    </script>
+</body>
+</html>

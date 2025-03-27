@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chào mừng</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="form-container" >
+        <h2>Nhập tên của bạn</h2>
+        <input type="text" id="nameInput" placeholder="Nhập tên của bạn..."> <br> <br>
+        <button id="saveBtn" onclick="saveName()" style="display: block;">Lưu</button>
+    </div>
+
+    <div id="greeting-container"style="display: none;">
+        <h2>👋 Chào bạn, <span id="displayName"></span>!</h2>
+        <button id="changeNameBtn" onclick="changeName()" >Đổi tên</button>
+    </div>
+
+    <script src="./baiTap1.js"></script>
+</body>
+</html>
